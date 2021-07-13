@@ -1,4 +1,4 @@
-# Svelte-Esbuild-Electron template
+# App template
 
 A starter kit to build cross-platform desktop apps.
 
