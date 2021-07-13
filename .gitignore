@@ -1,0 +1,6 @@
+/dist/
+/node_modules/
+/electron/node_modules/
+/electron/public/bundle.js
+/electron/public/bundle.css
+yarn.lock
