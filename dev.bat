@@ -1,5 +1,5 @@
 @ECHO OFF
-node esbuild.js dev & 
-cd "electron" && yarn dev && cd ".."
-
-
+start node esbuild.js dev
+cd electron
+start yarn dev
+cd ..
