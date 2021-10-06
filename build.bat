@@ -1,3 +1,3 @@
 @ECHO OFF
 node esbuild.js prod & 
-cd "electron" && yarn  buildwindows && cd ".."
+yarn  buildwindows && cd ".."

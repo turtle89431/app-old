@@ -1,18 +1,45 @@
 {
-    "name": "electron-svelte-esbuild-template",
+    "name": "myapp",
     "version": "1.0.0",
-    "description": "A starter kit to build cross-platform desktop apps with Electron, Svelte and Esbuild",
-    "repository": "https://github.com/Tazeg/electron-svelte-esbuild-template",
+    "description": "Electron app built with svelte + esbuild",
+    "main": "index.js",
     "author": "@JeffProd",
     "license": "MIT",
+    "build": {
+        "appId": "com.myapp.${name}",
+        "directories": {
+            "output": "../dist",
+            "buildResources": "./buildressources"
+        },
+        "linux": {
+            "asar": true,
+            "category": "Network",
+            "artifactName": "myapp-v${version}-linux.${ext}",
+            "target": [
+                "AppImage"
+            ]
+        },
+        "win": {
+            "asar": true,
+            "icon": "./buildressources/iconb256.ico",
+            "legalTrademarks": "(c) @turtle89431",
+            "publisherName": "@turtle89431",
+            "artifactName": "port-${name}-v${version}-windows.${ext}",
+            "target": [
+                "portable"
+            ]
+        }
+    },
     "scripts": {
-        "dev": "concurrently 'node esbuild.js dev' 'cd electron\\ && yarn run dev'",
-        "buildlinux": "node esbuild.js prod && cd electron && yarn run buildlinux",
-        "buildwindows": "node esbuild.js prod && cd electron && yarn run buildwindows"
+        "dev": "electron .",
+        "buildlinux": "electron-builder -l --x64",
+        "buildwindows": "electron-builder -w --x64"
     },
     "devDependencies": {
-        "concurrently": "^6.2.0",
         "electron": "^13.1.6",
+        "electron-builder": "^22.11.7",
+        "electron-reloader": "^1.2.1",
+        "concurrently": "^6.2.0",
         "esbuild": "^0.12.15",
         "esbuild-svelte": "^0.5.3",
         "svelte": "^3.38.3"
